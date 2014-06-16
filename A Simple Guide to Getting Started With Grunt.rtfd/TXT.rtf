@@ -1,0 +1,1033 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 OpenSans;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Consolas;
+\f3\fswiss\fcharset0 Helvetica;\f4\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red255\green255\blue255;\red15\green121\blue172;
+\red229\green229\blue229;\red26\green26\blue26;\red246\green246\blue239;\red29\green30\blue26;\red184\green14\blue61;
+\red247\green238\blue241;\red93\green108\blue125;\red152\green224\blue36;\red213\green213\blue213;\red0\green0\blue0;
+\red247\green247\blue247;\red88\green209\blue235;\red255\green255\blue255;\red224\green213\blue97;\red244\green0\blue95;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww27460\viewh19420\viewkind0
+\deftab720
+\pard\pardeftab720\sl1160\sa600
+
+\f0\b\fs78 \cf2 \cb3 A Simple Guide to Getting Started With Grunt\
+\pard\pardeftab720\sl420
+
+\b0\fs32 \cf2 Things like minifying JavaScript and CSS files, unit testing, linting your files to check for errors, compiling CSS preprocessor files (LESS, SASS), and much more.\
+\pard\pardeftab720\sl540\sa600
+{\field{\*\fldinst{HYPERLINK "http://gruntjs.com/"}}{\fldrslt \cf4 Grunt}} is a task runner. This means that those repetitive tasks we deal with in our daily workflow gets 
+\b automated
+\b0 . This will be a 
+\i simple
+\i0  look at how to get up and running with Grunt. We will look at doing the basic tasks:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl420\sa160
+\ls1\ilvl0
+\fs30 \cf2 {\listtext	\'95	}Linting our JS files\
+{\listtext	\'95	}Minifying JS files\
+{\listtext	\'95	}Compiling LESS files\
+{\listtext	\'95	}Minifying CSS files\
+{\listtext	\'95	}Watching our files for changes and doing the above tasks\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#a-quick-look-at-grunt-in-action"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 A Quick Look at Grunt in Action}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 Let\'92s say you wanted to check for errors in your JavaScript file. After you have setup Grunt, just run\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt jshint \
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 and you will see the errors in your JavaScript files!\
+\pard\pardeftab720\sl440\sa600
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/wp-content/uploads/2014/04/grunt-jshint.png"}}{\fldrslt 
+\f3\fs24 \cf0 }}\
+\pard\pardeftab720\sl540\sa600
+\cf2 It\'92s that easy to use Grunt. Just set it up and then call the task you want. Grunt will 
+\b run
+\b0  the task for you. That\'92s probably the official Grunt site calls it a 
+\i taskrunner
+\i0 .\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#making-this-super-simple"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Making This Super Simple}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 There are many tutorials out there that talk about the great things you can do with Grunt. While great, sometimes they come with confusing and fully fledged configurations that are hard to understand for someone just getting into Grunt.\
+This will be 
+\b a guide in the basics of using Grunt
+\b0  and creating an incredibly simple and easy setup to handle the tasks mentioned above. This setup will teach us the basics but will let us think how we can expand Grunt for future more advanced uses.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#getting-started"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Getting Started}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 To use Grunt, we will need to have {\field{\*\fldinst{HYPERLINK "http://nodejs.org/"}}{\fldrslt \cf4 Node.js}} installed. Don\'92t worry, you can use Grunt in any application you want, whether it is a Node app, a PHP app, WordPress, or just a plain old HTML/CSS/JS site. Node and its package manager (npm) are used to pull in the packages we need. Each package will have a different function like minifying or linting.\
+If you don\'92t already have Node installed on your computer, go ahead and {\field{\*\fldinst{HYPERLINK "http://nodejs.org/"}}{\fldrslt \cf4 grab it}} and we\'92ll start working with Grunt.\
+To make sure that you have Node and npm installed, go into your command line and type 
+\f4\fs28 \cf9 \cb10 node -v
+\f0\fs32 \cf2 \cb3  and 
+\f4\fs28 \cf9 \cb10 npm -v
+\f0\fs32 \cf2 \cb3 . If you see version numbers, then you\'92re ready to go!\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#overview"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Overview}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 We\'92ll keep our project files very simple. This will be the file structure for our samples. Go ahead and create the folders and files shown. We\'92ll leave our files blank and start adding to them later.
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\pard\pardeftab720\sl400
+\cf7 - dist 			\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// will hold all our of final files (minified files)\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ----- css\
+----- js\
+- src 			\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// will hold all of our original files\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ----- css\
+---------- style.css\
+---------- pretty.less\
+----- js\
+---------- magic.js\
+Gruntfile.js 	\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// our Grunt configuration\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 package.json 	\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// our npm pacakge configuration (how we pull in packages)\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Notice how we have a 
+\f4\fs28 \cf9 \cb10 src
+\f0\fs32 \cf2 \cb3  folder and a 
+\f4\fs28 \cf9 \cb10 dist
+\f0\fs32 \cf2 \cb3  folder. We will be doing our work inside the 
+\f4\fs28 \cf9 \cb10 src
+\f0\fs32 \cf2 \cb3  folder and Grunt will minify those files and save them into the 
+\f4\fs28 \cf9 \cb10 dist
+\f0\fs32 \cf2 \cb3  folders.\
+The files in 
+\f4\fs28 \cf9 \cb10 dist
+\f0\fs32 \cf2 \cb3  are the ones that we will use for our final site.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#getting-the-grunt-packages-we-need"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Getting The Grunt Packages We Need}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 When using npm, we define the packages we need in a
+\f4\fs28 \cf9 \cb10 package.json
+\f0\fs32 \cf2 \cb3  file. Let\'92s go into that file and add the packages we need. We\'92ll explain what each package does also.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // package.json\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\{\
+  \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "name"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt-getting-started"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+  \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "version"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "0.1.0"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+  \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "devDependencies"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \{\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "~0.4.4"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt-contrib-jshint"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "latest"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "jshint-stylish"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "latest"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt-contrib-uglify"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "latest"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt-contrib-less"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "latest"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt-contrib-cssmin"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "latest"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ,\
+    \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "grunt-contrib-watch"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 "latest"\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+  \}\
+\}\
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Here we have defined the 
+\f4\fs28 \cf9 \cb10 name
+\f0\fs32 \cf2 \cb3  of our project, the 
+\f4\fs28 \cf9 \cb10 version
+\f0\fs32 \cf2 \cb3 , and the 
+\f4\fs28 \cf9 \cb10 devDependencies
+\f0\fs32 \cf2 \cb3 . This may seem weird at first for someone that hasn\'92t used Node or npm before, but you\'92ll see how npm is a very cool package manager for our project very soon.\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 Grunt Packages\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 You may be wondering what all of the 
+\f4\fs28 \cf9 \cb10 grunt-contrib-****
+\f0\fs32 \cf2 \cb3 packages do. Here\'92s a handy table of the popular pacakages.\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrt\brdrs\brdrw20\brdrcf13 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalb \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw40\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalb \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw40\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400
+
+\b\fs28 \cf0 \cb1 Plugin\cell 
+\pard\intbl\itap1\pardeftab720\sl400
+\cf0 Description\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-jshint"}}{\fldrslt 
+\b0 \cf4 contrib-jshint}}
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Validate files using jshint\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-uglify"}}{\fldrslt \cf4 contrib-uglify}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Minify JS files using UglifyJS\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-watch"}}{\fldrslt \cf4 contrib-watch}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Run tasks whenever watched files are changed\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-clean"}}{\fldrslt \cf4 contrib-clean}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Clean up files and folders\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-copy"}}{\fldrslt \cf4 contrib-copy}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Copy files and folders\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-concat"}}{\fldrslt \cf4 contrib-concat}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Combine files into a single file\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-cssmin"}}{\fldrslt \cf4 contrib-cssmin}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Compress CSS files\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-less"}}{\fldrslt \cf4 contrib-less}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Compile LESS files to CSS\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-imagemin"}}{\fldrslt \cf4 contrib-imagemin}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Minify PNG, JPG, and GIFs\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-compass"}}{\fldrslt \cf4 contrib-compass}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Compile SASS to CSS using Compass\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \tamarb420 \trbrdrl\brdrs\brdrw20\brdrcf13 \trbrdrb\brdrs\brdrw20\brdrcf13 \trbrdrr\brdrs\brdrw20\brdrcf13 
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx4320
+\clvertalt \clcbpat15 \clwWidth4780\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf13 \clbrdrl\brdrs\brdrw20\brdrcf13 \clbrdrb\brdrs\brdrw20\brdrcf13 \clbrdrr\brdrs\brdrw20\brdrcf13 \clpadt160 \clpadl160 \clpadb160 \clpadr160 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qc
+{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-htmlmin"}}{\fldrslt \cf4 contrib-htmlmin}}\cell 
+\pard\intbl\itap1\pardeftab720\sl400\qc
+\cf0 Minify HTML files\cell \lastrow\row
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 \cb3 For the full list of packages, visit the {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/plugins"}}{\fldrslt \cf4 Grunt plugin repository}}. Now that we have the packages we need defined, let\'92s install them.\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 Installing The Packages\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 With our 
+\f4\fs28 \cf9 \cb10 package.json
+\f0\fs32 \cf2 \cb3  file ready to go, go into your command line and type:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ npm install\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 You will see npm do its thing and pull those packages into a newly created 
+\b node_modules
+\b0  folder. Now we have these packages and are ready to use them in our project.\
+Now that our setup is all ready to go, let\'92s set up our tasks for Grunt to do!\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#grunt-setup-and-configuration"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Grunt Setup and Configuration}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 To define our configuration for Grunt, we will use our
+\f4\fs28 \cf9 \cb10 Gruntfile.js
+\f0\fs32 \cf2 \cb3  file. This is the default place where our settings will go.\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 The Base Gruntfile\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 In our 
+\f4\fs28 \cf9 \cb10 Gruntfile.js
+\f0\fs32 \cf2 \cb3 , let\'92s go ahead and add in the basic things we need for our project.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\
+// our wrapper function (required by grunt and its plugins)\
+// all configuration goes inside this function\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 module.exports = \cf16 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 function\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 (grunt) \{\
+\
+ \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // ===========================================================================\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // CONFIGURE GRUNT ===========================================================\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // ===========================================================================\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0   grunt.initConfig(\{\
+\
+   \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // get the configuration info from package.json ----------------------------\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0    \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // this way we can use things like name and version (pkg.name)\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     pkg: grunt.file.readJSON(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'package.json'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ),\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// all of our configuration will go here\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+  \});\
+\
+ \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // ===========================================================================\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // LOAD GRUNT PLUGINS ========================================================\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // ===========================================================================\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // we can only load these if they are in our package.json\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // make sure you have run npm install so our app can find these\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0   grunt.loadNpmTasks(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'grunt-contrib-jshint'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 );\
+  grunt.loadNpmTasks(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'grunt-contrib-uglify'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 );\
+  grunt.loadNpmTasks(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'grunt-contrib-less'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 );\
+  grunt.loadNpmTasks(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'grunt-contrib-cssmin'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 );\
+  grunt.loadNpmTasks(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'grunt-contrib-watch'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 );\
+\
+\};\
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 We will use the 
+\f4\fs28 \cf9 \cb10 module.exports
+\f0\fs32 \cf2 \cb3  (wrapper) function. This is the Node way of exposing our configuration to the rest of our application. We don\'92t have to worry about this too much, but if you are interested, read this {\field{\*\fldinst{HYPERLINK "http://openmymind.net/2012/2/3/Node-Require-and-Exports/"}}{\fldrslt \cf4 great article}} on the topic.\
+Inside of our 
+\f4\fs28 \cf9 \cb10 grunt.initConfig()
+\f0\fs32 \cf2 \cb3 , we have taken the information from our 
+\f4\fs28 \cf9 \cb10 package.json
+\f0\fs32 \cf2 \cb3  and saved it to 
+\f4\fs28 \cf9 \cb10 pkg
+\f0\fs32 \cf2 \cb3 . With this, we can use the attributes from our package.json file. We can call the name of our project using 
+\f4\fs28 \cf9 \cb10 pkg.name
+\f0\fs32 \cf2 \cb3  and the version with 
+\f4\fs28 \cf9 \cb10 pkg.version
+\f0\fs32 \cf2 \cb3 . We could also expand this and even use an author. 
+\b Why do we need this?
+\b0  Good question. We\'92ll see the usage in a bit, but one of the cool things we can do is use these attributes to create comments at the top of our files with project name, author, date built, and version! Pretty neat.\
+We have also loaded our grunt plugins using
+\f4\fs28 \cf9 \cb10 grunt.loadNpmTasks()
+\f0\fs32 \cf2 \cb3 . This is the way we can use the plugins that we brought in earlier using 
+\b npm
+\b0 .\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 Package Configuration\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 With our basic Grunt configuration ready, let\'92s look at configuring one of our packages. Let\'92s start with the JSHint package to lint our JavaScript files and tell us if there are any errors.\
+This is the way for Grunt to know which files we want it to lint, minify, or anything else we want to do.\
+When we configure packages, it will go into our
+\f4\fs28 \cf9 \cb10 grunt.initConfig()
+\f0\fs32 \cf2 \cb3  section and it will follow a certain structure. Here is the basic structure of configuring a Grunt package:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+grunt.initConfig(\{\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure jshint to validate js files -----------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	jshint: \{\
+      options: \{\
+        reporter: require(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint-stylish'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 )\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // use jshint-stylish to make our errors look and read good\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0       \},\
+\
+	 \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // when this task is run, lint the Gruntfile and all js files in src\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0       build: [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'Grunfile.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , 'src\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /**/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 *.js']\
+    \}\
+\
+\});\
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 This will be the basic format for how we configure our packages. We will:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl420\sa160
+\ls2\ilvl0
+\fs30 \cf2 {\listtext	1.	}Call the name of the package (
+\f4\fs28 \cf9 \cb10 jshint
+\f0\fs30 \cf2 \cb3 )\
+{\listtext	2.	}Set options if we have to. These are usually found on the docs for each specific package\
+{\listtext	3.	}Create a 
+\f4\fs28 \cf9 \cb10 build
+\f0\fs30 \cf2 \cb3  attribute and pass in files, directories, or anything else we want.\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 Naming Conventions\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 When naming the tasks, we are going to name our main task
+\f4\fs28 \cf9 \cb10 build
+\f0\fs32 \cf2 \cb3 . You can name this what you want and you could even create more than one task.\
+When you run grunt, all of the tasks will automatically be run. If you wanted to create tasks within the 
+\f4\fs28 \cf9 \cb10 jshint
+\f0\fs32 \cf2 \cb3  configuration, you could name them 
+\f4\fs28 \cf9 \cb10 dev
+\f0\fs32 \cf2 \cb3  and 
+\f4\fs28 \cf9 \cb10 production
+\f0\fs32 \cf2 \cb3 . Then we can call the tasks later by using 
+\f4\fs28 \cf9 \cb10 jshint:dev
+\f0\fs32 \cf2 \cb3  or 
+\f4\fs28 \cf9 \cb10 jshint:production
+\f0\fs32 \cf2 \cb3 .\
+Now that we have seen the basic setup for a Grunt package, let\'92s go ahead and start creating configurations for the tasks we want to do.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#linting-javascript-files"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Linting JavaScript Files}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 Here is the configuration for linting JavaScript files. It is the same as the example above. We are also bringing in the
+\f4\fs28 \cf9 \cb10 'jshint-stylish'
+\f0\fs32 \cf2 \cb3  package to make our error output look good.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+grunt.initConfig(\{\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure jshint to validate js files -----------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	jshint: \{\
+      options: \{\
+        reporter: require(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint-stylish'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 )\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // use jshint-stylish to make our errors look and read good\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0       \},\
+\
+	 \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // when this task is run, lint the Gruntfile and all js files in src\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0       build: [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'Grunfile.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , 'src\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /**/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 *.js']\
+    \}\
+\
+\});\
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Go ahead and add in some JS into 
+\f4\fs28 \cf9 \cb10 src/js/magic.js
+\f0\fs32 \cf2 \cb3 \
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // src/js/magic.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\pard\pardeftab720\sl400
+\cf16 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 var\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  hello = \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'look im grunting!'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\
+\cf16 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 var\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  awesome = \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'yes it is awesome!'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now if we run:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt jshint\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 in our command line, we\'92ll see it lint the Gruntfile and all JS files inside the 
+\f4\fs28 \cf9 \cb10 src
+\f0\fs32 \cf2 \cb3  folder.\
+\pard\pardeftab720\sl420\qc
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/wp-content/uploads/2014/04/grunt-jshint-errors.png"}}{\fldrslt 
+\f3\fs24 \cf0 }}\pard\pardeftab720\sl420\qc
+
+\fs30 \cf2 \
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 We can tell it to watch all JS files in our application, specific files, or all the files in a given folder using the 
+\f4\fs28 \cf9 \cb10 **
+\f0\fs32 \cf2 \cb3  for all folders and
+\f4\fs28 \cf9 \cb10 *
+\f0\fs32 \cf2 \cb3  for all files.\
+With linting out of the way, let\'92s look at minifying.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#minifying-javascript-files"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Minifying JavaScript Files}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 We\'92ll follow the same format. We will call the 
+\f4\fs28 \cf9 \cb10 uglify
+\f0\fs32 \cf2 \cb3  package, configure it, and tell it what files to use and create.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// get the configuration info from package.json ----------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0    \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // this way we can use things like name and version (pkg.name)\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     pkg: grunt.file.readJSON(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'package.json'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ),\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure uglify to minify js files -------------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     uglify: \{\
+      options: \{\
+        banner: '\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /*\\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \\n*/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \\n'\
+      \},\
+      build: \{\
+        files: \{\
+          \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dist/js/magic.min.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/js/magic.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+        \}\
+      \}\
+    \}\
+\
+\});\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Here we are configuring an option called 
+\f4\fs28 \cf9 \cb10 banner
+\f0\fs32 \cf2 \cb3 . This will add a nice comment to the top of our minified file. Notice we are using the 
+\f4\fs28 \cf9 \cb10 pkg.name
+\f0\fs32 \cf2 \cb3  from the package.json file.\
+In our 
+\f4\fs28 \cf9 \cb10 build
+\f0\fs32 \cf2 \cb3 , we are defining the file we want to create (
+\f4\fs28 \cf9 \cb10 dist/js/magic.min.js
+\f0\fs32 \cf2 \cb3 ) from the src file (
+\f4\fs28 \cf9 \cb10 src/js/magic.js
+\f0\fs32 \cf2 \cb3 ).\
+We will want more code in our file than just those two lines we made so let\'92s go grab a giant file to minify. Let\'92s go get jQuery. Copy everything from the {\field{\*\fldinst{HYPERLINK "http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"}}{\fldrslt \cf4 unminified jQuery file}} and paste it into our 
+\f4\fs28 \cf9 \cb10 src/js/magic.js
+\f0\fs32 \cf2 \cb3  file. See how they have their cool comment at the top of the file? We can build one of those out using the banner option.\
+With our file, let\'92s go ahead and minify it. Go into your console and type:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt uglify\
+\pard\pardeftab720\sl420\qc
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/wp-content/uploads/2014/04/grunt-uglify.png"}}{\fldrslt 
+\f3\fs24 \cf0 \cb3 \shad0 }}\pard\pardeftab720\sl420\qc
+
+\f0\fs30 \cf2 \cb3 \shad0 \
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 Now we have taken our file from the original 360kb to a nice sized 97.1kb!\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 Minifying Multiple Files into One\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 We can also do much more than just minify a single file. We can take multiple files and minify them to one output file. This can speed up our sites since we are only serving one JS file to the users visiting our site.\
+To configure multiple files is straightforward:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// get the configuration info from package.json ----------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0    \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // this way we can use things like name and version (pkg.name)\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     pkg: grunt.file.readJSON(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'package.json'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ),\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure uglify to minify js files -------------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     uglify: \{\
+      options: \{\
+        banner: '\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /*\\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \\n*/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \\n'\
+      \},\
+      build: \{\
+        files: \{\
+          \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dist/js/magic.min.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/js/magic.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/js/magic2.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]\
+        \}\
+      \}\
+    \}\
+\
+\});\
+ \
+\pard\pardeftab720\sl400
+\cf7 \cb17 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \
+\pard\pardeftab720\sl400
+\cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 In this example, we are taking these two files and minifying them into 
+\f4\fs28 \cf9 \cb10 magic.min.js
+\f0\fs32 \cf2 \cb3 . We can also use the shortcut we learned earlier and just say all js files in the 
+\f4\fs28 \cf9 \cb10 src
+\f0\fs32 \cf2 \cb3  folder should be minified. You would use (
+\f4\fs28 \cf9 \cb10 src/**/*.js
+\f0\fs32 \cf2 \cb3 ) for that.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#compiling-less-to-css"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Compiling LESS to CSS}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 While we will be using LESS for this example, you can also use the {\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-compass"}}{\fldrslt \cf4 grunt-contrib-compass}} package to do the same for SASS.\
+Here\'92s our configuration for compiling LESS files. Like our minifying JS example, we will use our config to define the source and output files.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// compile less stylesheets to css -----------------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     less: \{\
+      build: \{\
+        files: \{\
+          \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dist/css/pretty.css'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/css/pretty.less'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+        \}\
+      \}\
+    \}\
+\
+\});\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 For this example, we aren\'92t going to be setting any options. Just compile our 
+\f4\fs28 \cf9 \cb10 src/css/pretty.less
+\f0\fs32 \cf2 \cb3  to a 
+\f4\fs28 \cf9 \cb10 dist/css/pretty.css
+\f0\fs32 \cf2 \cb3 file.\
+Let\'92s add in some LESS into our source file.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /* src/css/pretty.less */\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\
+\pard\pardeftab720\sl400
+\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @red   		\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  #CC594A\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @yellow 	\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  #B8CC24\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @blue 		\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  #8BC5FF\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @purple 	\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  #6F3596\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\
+\pard\pardeftab720\sl400
+\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 body 		\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \{ \
+	\cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 background\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @red\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+	\cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 color\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @yellow\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\}\
+\
+\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 button 		\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \{\
+	\cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 background\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @blue\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\}\
+\
+\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 div 		\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \{\
+	\cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 background\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 :\cf18 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 @purple\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ;\
+\}\
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now we have defined some LESS variables and applied them to our elements. Let\'92s go ahead and run our task!\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt less\
+\pard\pardeftab720\sl420\qc
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/wp-content/uploads/2014/04/grunt-less-compile.png"}}{\fldrslt 
+\f3\fs24 \cf0 \cb3 \shad0 }}\pard\pardeftab720\sl420\qc
+
+\f0\fs30 \cf2 \cb3 \shad0 \
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 Now we have created the 
+\f4\fs28 \cf9 \cb10 dist/css/pretty.css
+\f0\fs32 \cf2 \cb3  file all of our LESS compiled to CSS and that file now looks like a normal stylesheet.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /* dist/css/pretty.css */\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\
+\pard\pardeftab720\sl400
+\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 body \cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \{\
+  \cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 background\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : #cc594a;\
+  \cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 color\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : #b8cc24;\
+\}\
+\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 button \cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \{\
+  \cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 background\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : #8bc5ff;\
+\}\
+\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 div \cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \{\
+  \cf19 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 background\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : #6f3596;\
+\}\
+\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Let\'92s look at two more things we can do with Grunt.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#minifying-css-files"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Minifying CSS Files}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 Like minifying JS files, this configuration will be straightforward. We get the drill now so let\'92s go ahead and create this configuration.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure cssmin to minify css files ------------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     cssmin: \{\
+      options: \{\
+        banner: '\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /*\\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \\n*/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \\n'\
+      \},\
+      build: \{\
+        files: \{\
+          \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dist/css/style.min.css'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/css/style.css'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+        \}\
+      \}\
+    \}\
+\
+\});\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now if you run:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt cssmin\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 We will have our newly minified 
+\f4\fs28 \cf9 \cb10 dist/css/style.min.css
+\f0\fs32 \cf2 \cb3  file.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#running-multiple-tasks-at-once"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Running Multiple Tasks at Once}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 Now that we see how all of our tasks work, let\'92s make things more efficient and run everything with just one task. This is much better than running separate calls for 
+\f4\fs28 \cf9 \cb10 grunt uglify
+\f0\fs32 \cf2 \cb3 ,
+\f4\fs28 \cf9 \cb10 grunt jshint
+\f0\fs32 \cf2 \cb3 , and so on.\
+\pard\pardeftab720\sl780\sa600
+
+\fs52 \cf2 Default Task\
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 With Grunt, you can create tasks that will run multiple tasks at the same time. For example, let\'92s say we wanted to do all of our tasks above by just calling 
+\f4\fs28 \cf9 \cb10 grunt
+\f0\fs32 \cf2 \cb3 .\
+When you run 
+\f4\fs28 \cf9 \cb10 grunt
+\f0\fs32 \cf2 \cb3  from the command line, Grunt will look for a task called 
+\b default
+\b0 . Let\'92s create that now so we can see what it looks like.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+	...\
+\
+\});\
+\
+...\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+// ===========================================================================\
+// CREATE TASKS ==============================================================\
+// ===========================================================================\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.registerTask(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'default'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'uglify'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'cssmin'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'less'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]);\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now just run:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 and all of the tasks in our 
+\f4\fs28 \cf9 \cb10 default
+\f0\fs32 \cf2 \cb3  task will run! Now let\'92s look at how we can register different tasks for different environments.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#different-tasks-for-different-environments"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Different Tasks for Different Environments}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 Let\'92s say we want to have Grunt work for us in a development environment and then when we go to production, we want different tasks to be run.\
+We could define multiple tasks inside of each configuration. For example:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// get the configuration info from package.json ----------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0    \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // this way we can use things like name and version (pkg.name)\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     pkg: grunt.file.readJSON(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'package.json'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ),\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure uglify to minify js files -------------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     uglify: \{\
+      options: \{\
+        banner: '\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /*\\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \\n*/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \\n'\
+      \},\
+      dev: \{\
+        files: \{\
+          \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dist/js/magic.min.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/js/magic.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'src/js/magic2.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]\
+        \}\
+      \},\
+      production: \{\
+        files: \{\
+          \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dist/js/magic.min.js'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 : 'src\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /**/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 *.js'\
+        \}\
+      \}\
+    \}\
+\
+\});\
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+\pard\pardeftab720\sl400
+\cf7 \cb17 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+ \
+\pard\pardeftab720\sl400
+\cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now we can call them differently using a colon. Let\'92s create a task for development and production.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+	...\
+\
+\});\
+\
+...\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+// ===========================================================================\
+// CREATE TASKS ==============================================================\
+// ===========================================================================\
+\
+// this default task will go through all configuration (dev and production) in each task \
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.registerTask(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'default'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'uglify'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'cssmin'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'less'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]);\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+// this task will only run the dev configuration\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.registerTask(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'dev'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint:dev'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'uglify:dev'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'cssmin:dev'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'less:dev'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]);\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 \
+// only run production configuration\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.registerTask(\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'production'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint:production'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'uglify:production'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'cssmin:production'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'less:production'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]);\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now we can call development by running:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt dev\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 or production by running:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt production\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now we\'92ve seen how we can create multiple configurations for our tasks and call them differently. Let\'92s look at the last thing we\'92ll be creating today. We\'92ll watch our files and have Grunt run every time a file changes!\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#watching-for-changes-and-running-tasks"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Watching For Changes and Running Tasks}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 The watch task will run every time a file is changed and saved. All we have to do is configure it to watch certain files and tell it what to do when those files are changed.\
+We\'92re going to break from the basic 
+\f4\fs28 \cf9 \cb10 build
+\f0\fs32 \cf2 \cb3  configuration we\'92ve been using. Here we\'92ll separate it out into stylesheets and scripts. We do this because we want to use different tasks for each.\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf11 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 // Gruntfile.js\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 grunt.initConfig(\{\
+\
+	...\
+\
+\pard\pardeftab720\sl400
+\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 	// configure watch to auto update ------------------------------------------\
+\pard\pardeftab720\sl400
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0     watch: \{\
+\
+     \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // for stylesheets, watch css and less files\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0      \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // only run less and cssmin\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0       stylesheets: \{\
+        files: ['src\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /**/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 *.css\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ', '\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 src\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /**/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 *.less'],\
+        tasks: [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'less'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'cssmin'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]\
+      \},\
+\
+     \cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0  // for scripts, run jshint and uglify\
+\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0       scripts: \{\
+        files: 'src\cf11 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 /**/\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 *.js',\
+        tasks: [\cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'jshint'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 , \cf12 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 'uglify'\cf7 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 ]\
+      \}\
+    \}\
+\
+\});\
+\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now we have configured watch to watch our stylesheets and scripts. In your console, run:\
+\pard\pardeftab720\sl400
+
+\f2\fs28 \cf7 \cb8 \shad\shadx0\shady-20\shadr0\shado0 \shadc0 $ grunt watch\
+\pard\pardeftab720\sl540\sa600
+
+\f0\fs32 \cf2 \cb3 \shad0 Now we can see that Grunt will watch for changes and run the tasks it needs to.\
+\pard\pardeftab720\sl420\qc
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/wp-content/uploads/2014/04/grunt-watch-example.png"}}{\fldrslt 
+\f3\fs24 \cf0 }}\pard\pardeftab720\sl420\qc
+
+\fs30 \cf2 \
+\pard\pardeftab720\sl540\sa600
+
+\fs32 \cf2 In this picture, a JavaScript file and a CSS file was changed. The respective tasks were run and we can go on developing!\
+This is a very powerful tool since we can do things like linting our files every time we save, compiling LESS, and we can even{\field{\*\fldinst{HYPERLINK "https://www.npmjs.org/package/grunt-contrib-imagemin"}}{\fldrslt \cf4 minify images}}.\
+\pard\pardeftab720\sl480
+{\field{\*\fldinst{HYPERLINK "http://scotch.io/bar-talk/a-simple-guide-to-getting-started-with-grunt#conclusion"}}{\fldrslt 
+\f1\fs48 \cf5 \
+\pard\pardeftab720\sl960\sa600
+
+\f0\b\fs64 \cf6 Conclusion}}
+\b\fs64 \
+\pard\pardeftab720\sl540\sa600
+
+\b0\fs32 \cf2 Hopefully this simplified look at Grunt will begin to grow some ideas about how to use Grunt for your specific workflow. Getting up and running is as easy as 
+\b installing a package
+\b0 ,
+\b configuring the package
+\b0 , and typing 
+\b grunt
+\b0 !\
+Definitely look through the official {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/"}}{\fldrslt \cf4 docs}} and the {\field{\*\fldinst{HYPERLINK "http://gruntjs.com/plugins"}}{\fldrslt \cf4 plugins list}} to get more ideas on how to use Grunt.\
+}
